@@ -1,6 +1,6 @@
 {
     "name": "n8n-nodes-laposte",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Provides n8n nodes to consume La Poste Api",
     "homepage": "https://www.ndrou.fr",
     "author": {
