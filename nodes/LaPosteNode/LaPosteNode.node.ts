@@ -5,8 +5,7 @@ import {
     INodeType,
     INodeTypeDescription,
 } from 'n8n-workflow';
-import {checkAddressValidity, getDeliveryStatus} from "./LaPoste.utils";
-import {response} from "express";
+import {checkAddressValidity, getDeliveryStatus} from "./GenericFunctions";
 
 export class LaPosteNode implements INodeType {
     description: INodeTypeDescription = {
@@ -106,7 +105,11 @@ export class LaPosteNode implements INodeType {
             if (operation === 'delivery') {
                 const trackingNumber = this.getNodeParameter('tracking_number', i) as string;
                 const lang = this.getNodeParameter('lang', i) as string;
-                responseData = await getDeliveryStatus.call(this, trackingNumber, lang);
+                try {
+                    responseData = await getDeliveryStatus.call(this, trackingNumber, lang);
+                } catch (err) {
+                    responseData = null;
+                }
             } else if (operation === 'address') {
                 const address = this.getNodeParameter('address', i) as string;
                 const addressesFound = await checkAddressValidity.call(this, address);

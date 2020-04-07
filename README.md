@@ -2,7 +2,7 @@
 
 ![n8n.io - Workflow Automation](https://raw.githubusercontent.com/n8n-io/n8n/master/docs/images/n8n-logo.png)
 
-Provides n8n nodes to consume La Poste Ap.
+Provides n8n nodes to consume La Poste Api.
 
 
 ## License
